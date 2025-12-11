@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+/**
+ * @brief Checks if the sum of two dice rolls (X and Y) is a "Good Turn" (greater than 6).
+ *
+ * This function reads the number of test cases T, and for each test case, 
+ * it reads the values X and Y, calculates their sum, and prints "YES" if the 
+ * sum > 6, and "NO" otherwise.
+ */
+int main() {
+    // Variable to store the number of test cases
+    int T;
+    
+    // Read the number of test cases
+    if (scanf("%d", &T) != 1) {
+        return 1; // Handle error or unexpected input
+    }
+
+    // Loop through each test case
+    while (T--) {
+        // Variables to store the values of Chef's (X) and Chefina's (Y) dice rolls
+        int X, Y;
+        
+        // Read the two dice rolls for the current test case
+        if (scanf("%d %d", &X, &Y) != 2) {
+            break; // Stop if input reading fails
+        }
+        
+        // Calculate the sum of the dice rolls
+        int sum = X + Y;
+        
+        // The condition for a "Good Turn" is that the sum must be strictly greater than 6.
+        if (sum > 6) {
+            printf("YES\n");
+        } else {
+            printf("NO\n");
+        }
+    }
+
+    return 0; // Indicate successful execution
+}
