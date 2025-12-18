@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void calculate_the_maximum(int n, int k) {
+    int max_and = 0;
+    int max_or = 0;
+    int max_xor = 0;
+
+    // Nested loops to find all pairs (a, b) where 1 <= a < b <= n
+    for (int a = 1; a <= n; a++) {
+        for (int b = a + 1; b <= n; b++) {
+            
+            // Bitwise AND
+            int and_res = a & b;
+            if (and_res < k && and_res > max_and) {
+                max_and = and_res;
+            }
+            
+            // Bitwise OR
+            int or_res = a | b;
+            if (or_res < k && or_res > max_or) {
+                max_or = or_res;
+            }
+            
+            // Bitwise XOR
+            int xor_res = a ^ b;
+            if (xor_res < k && xor_res > max_xor) {
+                max_xor = xor_res;
+            }
+        }
+    }
+
+    // Printing the final maximums
+    printf("%d\n%d\n%d\n", max_and, max_or, max_xor);
+}
+
+int main() {
+    int n, k;
+    scanf("%d %d", &n, &k);
+    calculate_the_maximum(n, k);
+    return 0;
+}
